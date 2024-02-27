@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine List</title>
+    <style>
+        .medicine-input {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .medicine-input input[type="text"],
+        .medicine-input input[type="number"] {
+            flex: 1;
+            margin-right: 5px;
+        }
+        .add-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Prescription</h1>
+
+    <form id="medicine-form" action="/patient/med/prescription?userId=<%=uniqueID %>" method="post" >
+
+        <div id="medicine-container">
+            <!-- Initial medicine input fields -->
+            <div class="medicine-input">
+                <input type="text" name="medicineName" placeholder="Medicine Name">
+                <input type="number" name="quantity" placeholder="Quantity">
+            </div>
+        </div>
+
+        <button type="button" id="add-medicine" class="add-button">+</button>
+        <br>
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <button><a href="/">Back to homePage</a></button>
+
+    <% if (locals.qr_link) { %>
+        <div>
+            <img src="<%= qr_link %>" alt="qr Code">
+        </div>
+    <% } %>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addButton = document.getElementById("add-medicine");
+            const container = document.getElementById("medicine-container");
+            
+            addButton.addEventListener("click", function() {
+                const newMedicineInput = document.createElement("div");
+                newMedicineInput.classList.add("medicine-input");
+                newMedicineInput.innerHTML = `
+                    <input type="text" name="medicineName" placeholder="Medicine Name">
+                    <input type="number" name="quantity" placeholder="Quantity">
+                `;
+                container.appendChild(newMedicineInput);
+            });
+        });
+    </script>
+</body>
+</html>

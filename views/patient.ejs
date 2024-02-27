@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient</title>
+    <%- include('./partial/head') %>
+</head>
+<body>
+    <h1>this is patients tab</h1>
+    
+    <%- include('./partial/alert') %>
+      <form class="m-5" method="post" action="/patient">
+          <div class="row g-3">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="firstName">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lastName">
+              </div>
+          </div> 
+        <button class="btn btn-primary btn-sm" type="submit">next</button>         
+      </form>
+    <%- include('./partial/tail') %>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./partial/head') %>
+
+</head>
+<body>
+    <h1>this is more details regarding medication</h1>
+    <form class="m-5" action="/patient/med?userId=<%= uniqueID %>" method="post">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="report"></textarea>
+            <label for="floatingTextarea2">Doctor Report</label>
+        </div>
+        <button type="submit"> add report </button>
+    </form>
+    <%- include('./partial/tail') %>
+</body>
+</html>

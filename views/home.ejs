@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <%- include('./partial/head') %>
+</head>
+<style>
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>this is homePage</h1>
+    
+        <div class="d-grid gap-2 m-5">
+            <button class="btn btn-primary" type="button"><a href="/patient">Start</a></button>
+            <button class="btn btn-primary" type="button"><a href="/history">View History</a></button>
+        </div>
+
+    <%- include('./partial/tail') %>
+</body>
+</html>

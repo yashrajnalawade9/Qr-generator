@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./partial/head') %>
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    h1{
+        text-align: center;
+        margin: 40px;
+    }
+</style>
+<body>
+    <h1>Patient History</h1>
+    <div class="container">
+
+        <% allUser.forEach(element => { %>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src=<%= element.qrCode %> class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= element.FirstName%></h5>
+                      <p class="card-text"><%= element.Report %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <% }) %>
+
+    </div>
+    <%- include('./partial/tail') %>
+</body>
+</html>
